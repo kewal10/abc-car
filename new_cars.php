@@ -15,7 +15,7 @@ require_once 'partials/footer.php';
 
         <?php
 
-        $query = $connection->query("SELECT * FROM car LIMIT 9,16");
+        $query = $connection->query("SELECT * FROM car WHERE CarType='NEW'");
         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
             ?>
 

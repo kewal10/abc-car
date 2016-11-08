@@ -15,7 +15,7 @@
 
         <?php
 
-        $query = $connection->query("SELECT * FROM car LIMIT 0,8");
+        $query = $connection->query("SELECT * FROM car WHERE CarType='USED'");
         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
             ?>
 

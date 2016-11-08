@@ -60,7 +60,7 @@
 
         <?php
 
-            $query = $connection->query("SELECT * FROM car LIMIT 3");
+            $query = $connection->query("SELECT * FROM car WHERE CarType='NEW' LIMIT 3");
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
        ?>
 
