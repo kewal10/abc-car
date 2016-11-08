@@ -36,7 +36,6 @@
             </form>
         </div>
 
-
         
         <div class="col-sm-12 col-md-9" style="margin-bottom: 30px;">
             <h4>Used cars</h4>
