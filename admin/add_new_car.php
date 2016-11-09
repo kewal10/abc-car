@@ -22,28 +22,44 @@ if(isset($_POST['add_new_car'])) {
 
         $carDetails = mysqli_real_escape_string($connection,$_POST['carDetails']);
         $carPrice = mysqli_real_escape_string($connection,$_POST['carPrice']);
+        $carImageName = mysqli_real_escape_string($connection,$_POST['carImageName']);
+        $carImage = mysqli_real_escape_string($connection,$_POST['carImage']);
+        $carInfo = mysqli_real_escape_string($connection,$_POST['carInfo']);
         $carType = mysqli_real_escape_string($connection,$_POST['carType']);
         $CarTransmssion = mysqli_real_escape_string($connection,$_POST['CarTransmssion']);
         $carOdometer = mysqli_real_escape_string($connection,$_POST['carOdometer']);
         $carLocation = mysqli_real_escape_string($connection,$_POST['carLocation']);
-        $carInfo = mysqli_real_escape_string($connection,$_POST['carInfo']);
-        $carImage = mysqli_real_escape_string($connection,$_POST['carImage']);
 
-        $file = $_FILES['carImage']['tmp_name'];
 
-        if(!isset($file)) {
-            echo '';
-        } else {
-            $img = file_get_contents($_FILES['carImage']['tmp_name']);
-            $image_name = $_FILES['carImage']['name'];
-            $image_size = getimagesize($_FILES['carImage']['tmp_name']);
-            if($image_size == FALSE) {
+//        $carimg = "img/".basename($_FILES['carImage']['name']);
+//
+//    $carImage = $_FILES['carImage']['name'];
+//
+//        $add_new_car = $connection->query("INSERT INTO car (carDetails, carPrice, carImageName, carImage, carInfo, CarType, CarTransmssion, carOdometer, carLocation) VALUES ('$carDetails', '$carPrice', '$carImageName', '$carImage', '$carInfo', '$carType', '$CarTransmssion', '$carOdometer', '$carLocation')");
+//
+//    if (move_uploaded_file($_FILES['carImage']['tmp_name'], $carimg)) {
+//        echo '';
+//    } else {
+//        echo '';
+//    }
+
+
+
+
+        $carImage = move_uploaded_file($_FILES['carImage']['tmp_name'], 'img/');
+
+            if(!isset($carImage)) {
                 echo '';
             } else {
-                $add_new_car = $connection->query("INSERT INTO car (carDetails, carPrice, carImageName, carImage, carInfo, CarType, CarTransmssion, carOdometer, carLocation) VALUES ('$carDetails', '$carPrice', '$image_name', '$carImage', '$carInfo', '$carType', '$CarTransmssion', '$carOdometer', '$carLocation')");
+                $img = file_get_contents($_FILES['carImage']['tmp_name'],'img/');
+                $image_name = $_FILES['carImage']['name'];
+                $image_size = getimagesize($_FILES['carImage']['tmp_name']);
+                if($image_size == FALSE) {
+                    echo '';
+                } else {
+                    $add_new_car = $connection->query("INSERT INTO car (carDetails, carPrice, carImageName, carImage, carInfo, CarType, CarTransmssion, carOdometer, carLocation) VALUES ('$carDetails', '$carPrice', '$image_name', '$carImage', '$carInfo', '$carType', '$CarTransmssion', '$carOdometer', '$carLocation')");
+                }
             }
-        }
-
 
 }
 
@@ -51,7 +67,7 @@ if(isset($_POST['add_new_car'])) {
 
 <h2 class="text-muted text-center hd">Add New Car</h2>
 
-<div class="container">
+<div class="container" style="padding-top: 20px;">
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <form class="add_car_form" id="add_car_form" action="add_new_car.php" method="post" enctype="multipart/form-data">
