@@ -36,7 +36,7 @@ if(isset($_POST['Register'])) {
 
 
 
-<div class="container u-form comp-container">
+<div class="container u-form comp-container hd">
     <form class="form-horizontal signupform" id="userForm" autocomplete="off" method="post" action="signup.php">
         <fieldset>
 

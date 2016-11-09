@@ -33,7 +33,7 @@ if(isset($_POST['SignIn'])) {
 }
 ?>
 
-    <div class="container u-form">
+    <div class="container u-form hd">
         <form class="form-horizontal signupform" id="userForm" autocomplete="off" method="post" action="signin.php">
             <fieldset>
 
