@@ -8,7 +8,7 @@
 
     require_once 'partials/carousel.php';
 
-    require_once 'partials/footer.php';
+
 
 ?>
 
@@ -89,4 +89,8 @@
 
 </div>
 
+<?php
 
+require_once 'partials/footer.php';
+
+?>

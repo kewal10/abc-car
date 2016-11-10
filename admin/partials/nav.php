@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php">Welcome Admin</a>
+            <a class="navbar-brand" href="home.php"><?php echo "Welcome  " . $_SESSION['adminFirstName']; ?></a>
         </div>
 
 
@@ -17,10 +17,10 @@
 
 
 
-                <li><a href="#">Logout</a></li>
+<!--                <li><a href="#">Logout</a></li>-->
 
                 <?php
-                if(!isset($_SESSION['userID']))
+                if(!isset($_SESSION['adminID']))
                 {
 
 //                    echo '<li><a href="add_new_car.php">Add New Car</a></li>';

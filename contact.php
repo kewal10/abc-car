@@ -1,11 +1,15 @@
 <?php
 
     $title = "ABC-CAR | Contact";
+    require_once  'config/db.php';
+
+    if(isset($_SESSION["userID"])) {
+    }else {
+        header('Location: signin.php');
+    }
 
     require_once 'partials/head.php';
     require_once 'partials/nav.php';
-
-
 
 
 ?>
@@ -41,7 +45,7 @@ if (isset($_POST['send_email']))  {
     <div class="form-group contact-us">
         <label class="col-md-4 control-label" for=""></label>
         <div class="col-md-5">
-            <legend class="text-center">Contact Us</legend>
+            <legend class="text-center hd">Contact Us</legend>
         </div>
     </div>
     <div class="row">
@@ -59,19 +63,19 @@ if (isset($_POST['send_email']))  {
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="fullname"></label>
                         <div class="col-sm-12 col-md-9 col-md-offset-3">
-                            <input id="fullname" name="fullname" type="text" placeholder="Full Name" class="form-control input-md inputbox"> <span class="help-block"></span>
+                            <input id="fullname" name="fullname" type="text" placeholder="John Smith" class="form-control input-md inputbox"> <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="email"></label>
                         <div class="col-sm-12 col-md-9 col-md-offset-3">
-                            <input id="email" name="email" type="email" placeholder="Email Address" class="form-control input-md inputbox"> <span class="help-block"></span>
+                            <input id="email" name="email" type="email" placeholder="johnsmith2016@gmail.com" class="form-control input-md inputbox"> <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="message"></label>
                         <div class="col-sm-12 col-md-9 col-md-offset-3">
-                            <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea> <span class="help-block"></span>
+                            <textarea class="form-control" id="message" name="message" placeholder="Hi There, I'm interested in your 2016 BMW... on ABC CAR. Is there anything I need to know about it? When can I inspect it? Please contact me. Thanks!"></textarea> <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">

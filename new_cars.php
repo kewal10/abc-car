@@ -1,16 +1,17 @@
 <?php
 
-$title = "ABC-CAR | Used Car";
+$title = "ABC-CAR | New Car";
 
 require_once  'config/db.php';
 require_once 'partials/head.php';
 require_once 'partials/nav.php';
 
-require_once 'partials/footer.php';
+
 
 ?>
 
 <div class="container">
+    <h4 style="margin-top: 50px;">New cars</h4>
     <div class="row">
 
         <?php
@@ -19,27 +20,9 @@ require_once 'partials/footer.php';
         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
             ?>
 
-            <div class="col-sm-12 col-md-3">
-                <h4>Search cars</h4>
-                <form autocomplete="off">
-                    <div class="form-group">
-                        <label for="car-search" class="sr-only">Enter Model, Make, Year</label>
-                        <input type="text" class="form-control" id="car-search" placeholder="Enter Model, Make, Year">
-                    </div>
-                    <input type="text" class="form-control" id="make" placeholder="Example - Totota">
-                    <select class="custom-select m-t-1" title="">
-                        <option selected>Used or New</option>
-                        <option value="1">New</option>
-                        <option value="2">Used</option>
-                        <option value="3">Both</option>
-                    </select>
-                </form>
-            </div>
 
+            <div class="col-sm-12 col-md-12" style="margin-bottom: 30px;">
 
-
-            <div class="col-sm-12 col-md-9" style="margin-bottom: 30px;">
-                <h4>New cars</h4>
 
 
                 <div class="panel panel-default">
@@ -79,3 +62,7 @@ require_once 'partials/footer.php';
         ?>
     </div>
 </div>
+
+<?php
+    require_once 'partials/footer.php';
+?>

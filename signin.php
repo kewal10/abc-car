@@ -1,10 +1,11 @@
 <?php
 
-    $title = "ABC-CAR | Home";
+    $title = "ABC-CAR | Sign In";
 
+    require_once  'config/db.php';
     require_once 'partials/head.php';
     require_once 'partials/nav.php';
-    require_once  'config/db.php';
+
 
 ?>
 
@@ -24,8 +25,8 @@ if(isset($_POST['SignIn'])) {
 
     } else {
 
-        $_SESSION["userID"] = $row["userID"];
-        $_SESSION["fullName"] = $row["fullName"];
+        $_SESSION["userID"] = $row["customerID"];
+        $_SESSION["fullName"] = $row["customerFirstName"] . " " . $row['customerLastName'];
 
         $_SESSION["loggedIn"] = true;
         header('Location: index.php');
@@ -55,13 +56,13 @@ if(isset($_POST['SignIn'])) {
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="email"></label>
                     <div class="col-md-5">
-                        <input id="email" name="email" type="email" placeholder="Email Address" class="form-control input-md inputbox"> <span class="help-block"></span>
+                        <input id="email" name="email" type="email" placeholder="johnsmith2016@gmail.com" class="form-control input-md inputbox"> <span class="help-block"></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="password"></label>
                     <div class="col-md-5">
-                        <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md inputbox">
+                        <input id="password" name="password" type="password" placeholder="********" class="form-control input-md inputbox">
                         <span class="help-block help-login"><a href="signup.php">Create an Account</a></span>
                     </div>
                 </div>

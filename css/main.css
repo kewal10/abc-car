@@ -60,6 +60,9 @@ select.custom-select.m-t-1 {
     margin-top: 15px;
 }
 
+.c-a-a {
+    margin-bottom: 0;
+}
 
 /* -----------------------------------------------
    Admin Page
@@ -85,4 +88,12 @@ textarea.form-control {
     padding-left: 0;
     padding-right: 4px;
     margin-bottom: 18px;
+}
+
+.help-block {
+    display: block !important;
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+    color: #e74c3c !important;
+    font-size: 11px !important;
 }

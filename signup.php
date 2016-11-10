@@ -1,6 +1,6 @@
 <?php
 
-    $title = "ABC-CAR | Home";
+    $title = "ABC-CAR | Sign Up";
 
     require_once 'partials/head.php';
     require_once 'partials/nav.php';
@@ -37,7 +37,8 @@ if(isset($_POST['Register'])) {
 
 
 <div class="container u-form comp-container hd">
-    <form class="form-horizontal signupform" id="userForm" autocomplete="off" method="post" action="signup.php">
+    <form class="form-horizontal signupform" id="userForm" autocomplete="off" method="post" action="signup.php" style="margin-top: -30px;
+">
         <fieldset>
 
             <div class="form-group c-a-a">
@@ -58,31 +59,31 @@ if(isset($_POST['Register'])) {
             <div class="form-group">
                 <label class="col-md-4 control-label" for="fullname"></label>
                 <div class="col-md-5">
-                    <input id="firstName" name="firstName" type="text" placeholder="First Name" class="form-control input-md inputbox"> <span class="help-block"></span>
+                    <input id="firstName" name="firstName" type="text" placeholder="John" class="form-control input-md inputbox"> <span class="help-block"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="fullname"></label>
                 <div class="col-md-5">
-                    <input id="lastName" name="lastName" type="text" placeholder="Last Name" class="form-control input-md inputbox"> <span class="help-block"></span>
+                    <input id="lastName" name="lastName" type="text" placeholder="Smith" class="form-control input-md inputbox"> <span class="help-block"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email"></label>
                 <div class="col-md-5">
-                    <input id="email" name="email" type="email" placeholder="Email Address" class="form-control input-md inputbox"> <span class="help-block"></span>
+                    <input id="email" name="email" type="email" placeholder="johnsmith2016@gmail.com" class="form-control input-md inputbox"> <span class="help-block"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="password"></label>
                 <div class="col-md-5">
-                    <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md inputbox"> <span class="help-block"></span>
+                    <input id="password" name="password" type="password" placeholder="********" class="form-control input-md inputbox"> <span class="help-block"></span>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="password_again"></label>
                 <div class="col-md-5">
-                    <input id="password_again" name="password_again" type="password" placeholder="Confirm Password" class="form-control input-md inputbox">
+                    <input id="password_again" name="password_again" type="password" placeholder="********" class="form-control input-md inputbox">
                     <span class="help-block help-login"><a href="signin.php">I Have a Acount </a></span>
                 </div>
             </div>

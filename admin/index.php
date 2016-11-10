@@ -1,10 +1,9 @@
 <?php
 
-session_start();
 
-$title = "ABC-CAR | Admin";
-
-require_once 'partials/head.php';
+    $title = "ABC-CAR | Admin";
+    require_once '../config/db.php';
+    require_once 'partials/head.php';
 
 ?>
 <?php
@@ -23,8 +22,8 @@ require_once 'partials/head.php';
 
     } else {
 
-            $_SESSION["userID"] = $row["userID"];
-            $_SESSION["fullName"] = $row["fullName"];
+            $_SESSION["adminID"] = $row["adminID"];
+            $_SESSION["adminFirstName"] = $row["adminFirstName"];
 
             $_SESSION["loggedIn"] = true;
             header('Location: home.php');
@@ -54,13 +53,13 @@ require_once 'partials/head.php';
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="email"></label>
                     <div class="col-md-5">
-                        <input id="email" name="email" type="email" placeholder="Email Address" class="form-control input-md inputbox"> <span class="help-block"></span>
+                        <input id="email" name="email" type="email" placeholder="johnsmail2016@admin.com" class="form-control input-md inputbox"> <span class="help-block"></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="password"></label>
                     <div class="col-md-5">
-                        <input id="password" name="password" type="password" placeholder="Password" class="form-control input-md inputbox">
+                        <input id="password" name="password" type="password" placeholder="********" class="form-control input-md inputbox">
                     </div>
                 </div>
                 <div class="form-group">
