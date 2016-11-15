@@ -1,6 +1,6 @@
 ## Quick website
 
-This is a very simple car selling website just starting
+This is a very simple car selling website 
 
 Bootstrap themes form https://bootswatch.com/
 
