@@ -11,6 +11,7 @@
     require_once 'partials/head.php';
     require_once 'partials/nav.php';
 
+
 ?>
 
 <?php
@@ -37,15 +38,15 @@ if (isset($_POST['send_email']))  {
     $result='<div class="alert alert-success">Thank you for contacting us! we will get back as soon as possible</div>';
 }
 
-    if(isset($_GET['id'])) {
+if(isset($_GET['id'])) {
 
-        $c_id = $_GET['id'];
+    $c_id = $_GET['id'];
 
-        $query = $connection->query("SELECT * FROM car WHERE carID='$c_id'");
-        $row = mysqli_fetch_array($query,MYSQLI_ASSOC);
-    } else {
-        echo '';
-    }
+    $query = $connection->query("SELECT * FROM car WHERE carID='$c_id'");
+    $row = mysqli_fetch_array($query,MYSQLI_ASSOC);
+} else {
+    echo '';
+}
 
 ?>
 
@@ -54,7 +55,7 @@ if (isset($_POST['send_email']))  {
     <div class="form-group contact-us">
         <label class="col-md-4 control-label" for=""></label>
         <div class="col-md-5">
-            <legend class="text-center hd">Contact Us</legend>
+            <legend class="text-center hd">Order Now</legend>
         </div>
     </div>
     <div class="row">
@@ -91,20 +92,19 @@ if (isset($_POST['send_email']))  {
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="message"></label>
                         <div class="col-sm-12 col-md-9 col-md-offset-3">
-                            <textarea class="form-control" id="message" name="message" placeholder="Hi There, I'm interested in your 2016 BMW... on ABC CAR. Is there anything I need to know about it? When can I inspect it? Please contact me. Thanks!"><?php echo $row['carInfo'] ?></textarea> <span class="help-block" ></span>
+                            <textarea class="form-control" id="message" name="message" placeholder=""><?php echo $row['carInfo'] ?></textarea> <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="email"></label>
                         <div class="col-sm-12 col-md-9 col-md-offset-3">
-                            <button type="submit" class="btn btn-default btn-block" name="send_email" id="btn">Send Message</button> <span class="help-block"></span>
+                            <button type="submit" class="btn btn-default btn-block" name="send_email" id="btn">Order Now!</button> <span class="help-block"></span>
                         </div>
                     </div>
                 </fieldset>
             </form>
-            
+
+
         </div>
 
         <?php require_once 'partials/footer.php'; ?>
-
-        

@@ -6,32 +6,32 @@
     require_once 'partials/head.php';
     require_once 'partials/nav.php';
 
-
 ?>
 
 <?php
 
-if(isset($_POST['SignIn'])) {
-    $email = mysqli_real_escape_string($connection,$_POST['email']);
-    $password = md5(mysqli_real_escape_string($connection,$_POST['password']));
+    if(isset($_POST['SignIn'])) {
+        $email = mysqli_real_escape_string($connection,$_POST['email']);
+        $password = md5(mysqli_real_escape_string($connection,$_POST['password']));
 
 
-    $query = $connection->query("SELECT * FROM customer WHERE customerEmail='$email' AND customerPassword='$password'");
-    $row = $query->fetch_array(MYSQLI_BOTH);
+        $query = $connection->query("SELECT * FROM customer WHERE customerEmail='$email' AND customerPassword='$password'");
+        $row = $query->fetch_array(MYSQLI_BOTH);
 
-    if($row==0) {
+        if($row==0) {
 
-        $result='<div class="alert alert-danger">Your logon attempt failed. Please try again.</div>';
+            $result='<div class="alert alert-danger">Your logon attempt failed. Please try again.</div>';
 
-    } else {
+        } else {
 
-        $_SESSION["userID"] = $row["customerID"];
-        $_SESSION["fullName"] = $row["customerFirstName"] . " " . $row['customerLastName'];
+            $_SESSION["userID"] = $row["customerID"];
+            $_SESSION["fullName"] = $row["customerFirstName"] . " " . $row['customerLastName'];
 
-        $_SESSION["loggedIn"] = true;
-        header('Location: index.php');
+            $_SESSION["loggedIn"] = true;
+            header('Location: index.php');
+        }
     }
-}
+
 ?>
 
     <div class="container u-form hd">
@@ -79,5 +79,5 @@ if(isset($_POST['SignIn'])) {
 
 
 <?php
-include('partials/footer.php');
+    include 'partials/footer.php';
 ?>

@@ -35,11 +35,11 @@
             <!-- Car 1-->
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../<?php echo $row['carImage']?><?php echo $row['carImageName'] ?>" alt="car" class="img-responsive">
+                    <img src="<?php echo $row['carImage']?><?php echo $row['carImageName'] ?>" alt="car" class="img-responsive">
                     <div class="caption">
                         <h4><?php echo $row['carDetails'] ?></h4>
                         <p><?php echo $row['carInfo'] ?></p>
-                        <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+                        <p><a href="view_car.php?id=<?php echo $row['carID']?>" class="btn btn-primary" role="button">Read More</a></p>
                     </div>
                 </div>
             </div>

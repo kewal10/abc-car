@@ -1,4 +1,6 @@
 <?php
+    ob_start();
+    session_start();
 
     $title = "ABC-CAR | Sign Up";
 
@@ -10,26 +12,24 @@
 
 <?php
 
-if(isset($_POST['Register'])) {
-    $firstName = mysqli_real_escape_string($connection,$_POST['firstName']);
-    $lastName = mysqli_real_escape_string($connection,$_POST['lastName']);
-    $email = mysqli_real_escape_string($connection,$_POST['email']);
-    $password = md5(mysqli_real_escape_string($connection,$_POST['password']));
-    $cdate = $_POST['Y-m-d H:i:s'];
-    $timestamp = date('Y-m-d H:i:s', strtotime($cdate));
+    if(isset($_POST['Register'])) {
+        $firstName = mysqli_real_escape_string($connection,$_POST['firstName']);
+        $lastName = mysqli_real_escape_string($connection,$_POST['lastName']);
+        $email = mysqli_real_escape_string($connection,$_POST['email']);
+        $password = md5(mysqli_real_escape_string($connection,$_POST['password']));
 
-    $check = $connection->query("SELECT customerEmail FROM customer WHERE customerEmail='$email'");
-    $run = $check->fetch_array(MYSQLI_BOTH);
-    if($run==0) {
-        $query = $connection->query(" INSERT INTO customer ( customerFirstName, customerLastName, customerEmail, customerPassword, customerCreatedDate )
-                VALUES ( '$firstName', '$lastName', '$email', '$password', curdate()) ");
+        $check = $connection->query("SELECT customerEmail FROM customer WHERE customerEmail='$email'");
+        $run = $check->fetch_array(MYSQLI_BOTH);
+        if($run==0) {
+            $query = $connection->query(" INSERT INTO customer ( customerFirstName, customerLastName, customerEmail, customerPassword )
+                    VALUES ( '$firstName', '$lastName', '$email', '$password') ");
 
-        header('Location: signin.php');
-    } else {
-        $result='<div class="alert alert-danger">Sorry this Email is already exist</div>';
+            header('Location: signin.php');
+        } else {
+            $result='<div class="alert alert-danger">Sorry this Email is already exist</div>';
+        }
+
     }
-
-}
 
 ?>
 

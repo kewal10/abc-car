@@ -18,15 +18,13 @@
 
         <?php
 
-        $search = $_GET['search'];
+            $search = $_GET['search'];
 
-        $query = $connection->query("SELECT * FROM car WHERE carDetails LIKE '%$search%'");
-        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-            ?>
+            $query = $connection->query("SELECT * FROM car WHERE carDetails LIKE '%$search%'");
+            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
+        ?>
 
-
-
-            <div class="col-sm-12 col-md-9" style="margin-bottom: 30px;">
+            <div class="col-sm-12 col-md-12" style="margin-bottom: 30px;margin-top: 30px;">
 
                 <div class="panel panel-default">
                     <div class="panel-heading"><?php echo $row['carDetails'] ?> <span class="text-left">&nbsp; &nbsp; <?php echo $row['carPrice'] ?></span></div>
@@ -46,19 +44,15 @@
                     </div>
 
                     <div class="pull-right info-btn">
-                        <a href="contact.php" class="btn btn-primary" role="button">Enquire</a>
-                        <a href="#" class="btn btn-primary" role="button">View Car</a>
+                        <a href="contact.php?id=<?php echo $row['carID']?>" class="btn btn-primary" role="button">Enquire</a>
+                        <a href="order.php?id=<?php echo $row['carID']?>" class="btn btn-primary" role="button">Order</a>
+                        <a href="view_car.php?id=<?php echo $row['carID']?>" class="btn btn-primary" role="button">View Car</a>
                     </div>
 
                     <div class="pull-left">
                         <h5 class="text-muted">LOCATION: <span class="text-muted"> <?php echo $row['carLocation'] ?> </span></h5>
                     </div>
-
-
                 </div>
-
-
-
             </div>
             <?php
         }

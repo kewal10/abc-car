@@ -8,8 +8,6 @@
 
     require_once 'partials/carousel.php';
 
-
-
 ?>
 
 <div class="container">
@@ -25,7 +23,7 @@
                         </div>
                         <input type="text" class="form-control" id="make" placeholder="Example - Totota">
                         <select class="custom-select m-t-1" title="">
-                            <option selected>Used or New</option>
+                            <option>Used or New</option>
                             <option value="1">New</option>
                             <option value="2">Used</option>
                             <option value="3">Both</option>
@@ -73,7 +71,7 @@
                 <div class="caption">
                     <h4><?php echo $row['carDetails'] ?></h4>
                     <p><?php echo $row['carInfo'] ?></p>
-                    <p><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+                    <p><a href="view_car.php?id=<?php echo $row['carID']?>" class="btn btn-primary" role="button">Read More</a></p>
                 </div>
             </div>
         </div>
