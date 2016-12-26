@@ -1,6 +1,5 @@
 <?php
 
-
     $title = "ABC-CAR | Admin";
     require_once '../config/db.php';
     require_once 'partials/head.php';
@@ -16,17 +15,17 @@
     $query = $connection->query("SELECT * FROM admin WHERE adminEmail='$email' AND adminPassword='$password'");
     $row = $query->fetch_array(MYSQLI_BOTH);
 
-    if($row==0) {
-
-    $result='<div class="alert alert-danger">Your logon attempt failed. Please try again.</div>';
-
-    } else {
+    if($row==1) {
 
             $_SESSION["adminID"] = $row["adminID"];
             $_SESSION["adminFirstName"] = $row["adminFirstName"];
 
             $_SESSION["loggedIn"] = true;
             header('Location: home.php');
+
+    } else {
+         $result='<div class="alert alert-danger">Your logon attempt failed. Please try again.</div>';
+            
         }
     }
 ?>
